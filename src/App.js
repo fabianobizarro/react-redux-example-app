@@ -1,26 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 
 import ContactForm from './components/ContactForm';
 import ContactList from './components/ContactList';
 import EditContactForm from './components/EditContactForm';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App container">
-        <br />
-        <div className="row">
-          <div className="col-md-12">
-            <ContactForm />
-          </div>
+import { connect } from 'react-redux';
+
+const App = ({ contactSelected }) => {
+  return (
+    <div className="App container">
+      <br />
+      <div className="row">
+        <div className="col-md-12">
+          {
+            contactSelected ? <EditContactForm /> : <ContactForm />
+          }
         </div>
-        <br />
-        <ContactList />
-        <EditContactForm />
       </div>
-    );
+      <br />
+      <ContactList />
+    </div>
+  );
+}
+
+const mapStateToProps = (state) => {
+  return {
+    contactSelected: Object.keys(state.selectedContact).length > 0
   }
 }
 
-export default App;
+let AppContainer = connect(mapStateToProps)(App);
+
+export default AppContainer;

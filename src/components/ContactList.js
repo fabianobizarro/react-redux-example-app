@@ -24,11 +24,10 @@ const getContacts = (contacts, filter) => {
 
     let regex = new RegExp(filter);
 
-    if (filter == 'ALL')
+    if (filter === 'ALL')
         return contacts;
     else
-        return contacts.
-                filter(c => { return regex.test(c.name) || regex.test(c.email) });
+        return contacts.filter(c => { return regex.test(c.name) || regex.test(c.email) });
 
 }
 

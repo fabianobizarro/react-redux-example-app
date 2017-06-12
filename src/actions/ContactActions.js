@@ -26,3 +26,10 @@ export const unselectContact = () => {
         type: type.UNSELECT_CONTACT
     }
 }
+
+export const updateContact = (contact) => {
+    return {
+        type: type.UPDATE_CONTACT,
+        contact
+    }
+}

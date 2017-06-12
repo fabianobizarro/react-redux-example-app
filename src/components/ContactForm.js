@@ -12,7 +12,7 @@ class ContactForm extends Component {
             name: '',
             email: ''
         };
-        
+
         this.dispatch = dispatch;
         this.handleChange = this.handleChange.bind(this);
     }
@@ -26,33 +26,36 @@ class ContactForm extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    formValid(){
+    formValid() {
         return this.state.name !== '' && this.state.email !== '';
     }
 
     render() {
-        return (
-            <div id="form-contact" className="card">
-                <div className="card-block">
-                    <h4 className="card-title">Add Contact</h4>
+        if (this.props.selectedContact)
+            return null;
+        else
+            return (
+                <div id="form-contact" className="card">
+                    <div className="card-block">
+                        <h4 className="card-title">Add Contact</h4>
 
-                    <form onSubmit={e => { e.preventDefault(); this.addContact(); }} className="form-inline">
-                        <div className="form-group">
-                            <input type="text" name="name" placeholder="Name" className="form-control mb-2 mr-sm-2 mb-sm-0"
-                                value={this.state.name} onChange={this.handleChange} />
-                        </div>
+                        <form onSubmit={e => { e.preventDefault(); this.addContact(); }} className="form-inline">
+                            <div className="form-group">
+                                <input type="text" name="name" placeholder="Name" className="form-control mb-2 mr-sm-2 mb-sm-0"
+                                    value={this.state.name} onChange={this.handleChange} />
+                            </div>
 
-                        <div className="form-group">
-                            <input type="text" name="email" className="form-control mb-2 mr-sm-2 mb-sm-0" 
+                            <div className="form-group">
+                                <input type="text" name="email" className="form-control mb-2 mr-sm-2 mb-sm-0"
                                     placeholder="Email" value={this.state.email} onChange={this.handleChange} />
-                        </div>
+                            </div>
 
-                        <button type="submit" className="btn btn-primary" disabled={!this.formValid()}>Add</button>
-                    </form>
+                            <button type="submit" className="btn btn-primary" disabled={!this.formValid()}>Add</button>
+                        </form>
 
+                    </div>
                 </div>
-            </div>
-        );
+            );
     }
 }
 
@@ -61,6 +64,12 @@ ContactForm.propTypes = {
     email: PropTypes.string
 }
 
-ContactForm = connect()(ContactForm);
+const mapStateToProps = (state) => {
+    return {
+        selectedContact: Object.keys(state.selectedContact).length > 0
+    }
+}
+
+ContactForm = connect(mapStateToProps)(ContactForm);
 
 export default ContactForm;
