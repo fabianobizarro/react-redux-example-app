@@ -54,27 +54,38 @@ export class EditContactForm extends Component {
     render() {
 
         return (
-            <div id="form-contact" className="card">
-                <div className="card-block">
-                    <h4 className="card-title">Edit Contact - {this.props.name}</h4>
+            <div id="form-contact" className="box">
 
-                    <form onSubmit={e => { e.preventDefault(); }} className="form-inline">
-                        <div className="form-group">
-                            <input type="text" name="name" placeholder="Name" className="form-control mb-2 mr-sm-2 mb-sm-0"
-                                value={this.state.name} onChange={this.handleChange} />
+                <h4 className="title is-4">Edit Contact - {this.props.name}</h4>
+
+                <form onSubmit={e => { e.preventDefault(); }} className="form-inline">
+
+
+                    <div className="field is-horizontal">
+
+                        <div className="field-body">
+
+                            <div className="field">
+                                <input type="text" name="name" placeholder="Name" className="input"
+                                    value={this.state.name} onChange={this.handleChange} />
+                            </div>
+
+                            <div className="field">
+                                <input type="text" name="email" className="input"
+                                    placeholder="Email" value={this.state.email} onChange={this.handleChange} />
+                            </div>
+
                         </div>
 
-                        <div className="form-group">
-                            <input type="text" name="email" className="form-control mb-2 mr-sm-2 mb-sm-0"
-                                placeholder="Email" value={this.state.email} onChange={this.handleChange} />
-                        </div>
+                    </div>
 
-                        <button type="submit" className="btn btn-warning" onClick={this.editContact} disabled={!this.formValid()}>Edit</button> |
-                            <button type="submit" className="btn btn-danger" onClick={this.removeContact}>Remove</button> |
-                            <button type="submit" className="btn btn-white" onClick={this.cancelEdit}>Cancel</button>
-                    </form>
 
-                </div>
+
+                    <button type="submit" className="button is-warning" onClick={this.editContact} disabled={!this.formValid()}>Edit</button> |
+                    <button type="submit" className="button is-danger" onClick={this.removeContact}>Remove</button> |
+                    <button type="submit" className="button" onClick={this.cancelEdit}>Cancel</button>
+                </form>
+
             </div>
         );
     }

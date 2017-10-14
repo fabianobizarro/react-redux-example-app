@@ -9,10 +9,10 @@ import { connect } from 'react-redux';
 
 const App = ({ contactSelected }) => {
   return (
-    <div className="App container">
+    <div className="container">
       <br />
-      <div className="row">
-        <div className="col-md-12">
+      <div className="columns">
+        <div className="column">
           {
             contactSelected ? <EditContactForm /> : <ContactForm />
           }
