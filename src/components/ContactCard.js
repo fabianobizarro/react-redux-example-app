@@ -18,11 +18,6 @@ export const ContactCard = ({ selectedId, onRemove, contact, onSelect }) => {
     )
 };
 
-const mapStateToProps = (state) => {
-    return {
-    }
-}
-
 const mapDispatchToProps = (dispatch) => {
     return {
         onRemove: (id) => {
@@ -34,6 +29,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const ContactContainer = connect(mapStateToProps, mapDispatchToProps)(ContactCard);
+const ContactContainer = connect(null, mapDispatchToProps)(ContactCard);
 
 export default ContactContainer;

@@ -1,8 +1,6 @@
 import * as types from './actionTypes';
 
-export const setFilter = (filter) =>{
-    return {
-        type: types.SET_FILTER,
-        filter: filter
-    }
-}
+export const setFilter = (filter) => ({
+    type: types.SET_FILTER,
+    filter: filter
+});
