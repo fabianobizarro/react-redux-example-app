@@ -5,23 +5,18 @@ import { connect } from 'react-redux';
 export const ContactCard = ({ selectedId, onRemove, contact, onSelect }) => {
     return (
 
-        <div className="list-group-item list-group-item-action flex-column align-items-start item-contact">
-            <div className="d-flex w-100 justify-content-between">
-                <h5 className="mb-1"> {contact.name} </h5>
-                <p className="card-options">
-                    <small> <a href="#" onClick={e => onSelect(contact)}> View </a> </small> -
-                <small> <a href="#" onClick={e => onRemove(contact.id)}> Remove </a> </small>
-                </p>
+        <article className="media">
+            <div className="media-content">
+                <h5 className="title is-5"> {contact.name} </h5>
+                <p className="subtitle is-5"> {contact.email} </p>
             </div>
-            <p className="mb-1"> {contact.email} </p>
-        </div>
+            <div className="media-right">
+                <small> <a href="javascript:void(0)" onClick={e => onSelect(contact)}> View </a> </small> -
+                <small> <a href="javascript:void(0)" onClick={e => onRemove(contact.id)}> Remove </a> </small>
+            </div>
+        </article>
     )
 };
-
-const mapStateToProps = (state) => {
-    return {
-    }
-}
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -34,6 +29,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const ContactContainer = connect(mapStateToProps, mapDispatchToProps)(ContactCard);
+const ContactContainer = connect(null, mapDispatchToProps)(ContactCard);
 
 export default ContactContainer;

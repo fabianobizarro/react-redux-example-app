@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './reducers/';
 
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import "../node_modules/bulma/css/bulma.css";
 import './index.css';
 
 let store = createStore(reducers);

@@ -30,11 +30,13 @@ export class Filter extends Component {
 
     render() {
         return (
-            <div className="input-group">
-                <input type="text" className="form-control" placeholder="Filter" value={this.state.filter} onChange={this.onChange} />
-                <span className="input-group-btn">
-                    <button className="btn btn-secondary" type="button" onClick={this.clearFilter}>Clear</button>
-                </span>
+            <div className="field is-grouped" style={{ padding: '10px' }}>
+                <p className="control is-expanded">
+                    <input type="text" className="input" placeholder="Filter" value={this.state.filter} onChange={this.onChange} />
+                </p>
+                <p className="control">
+                    <button className="button is-info" type="button" onClick={this.clearFilter}>Clear</button>
+                </p>
             </div>
         );
     }
