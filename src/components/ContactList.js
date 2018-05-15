@@ -8,10 +8,11 @@ export const ContactList = ({ contacts, state }) => {
         return null;
     else
         return (
-            <div classID="contactlist" id="contact-list" className="list-group">
+            <div classID="contactlist" id="contact-list" className="box">
                 <div className="list-group-item">
                     <Filter />
                 </div>
+                <hr />
                 {
                     contacts.map((e, i) =>
                         <ContactCard key={i} contact={e} />)

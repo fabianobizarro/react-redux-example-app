@@ -35,24 +35,26 @@ class ContactForm extends Component {
             return null;
         else
             return (
-                <div id="form-contact" className="card">
-                    <div className="card-block">
-                        <h4 className="card-title">Add Contact</h4>
-
-                        <form onSubmit={e => { e.preventDefault(); this.addContact(); }} className="form-inline">
-                            <div className="form-group">
-                                <input type="text" name="name" placeholder="Name" className="form-control mb-2 mr-sm-2 mb-sm-0"
-                                    value={this.state.name} onChange={this.handleChange} />
+                <div id="form-contact">
+                    <div className="card">
+                            <div className='card-header'>
+                                <h4 className="card-header-title">Add Contact</h4>
                             </div>
+                        <div className='card-content'>
+                            <form onSubmit={e => { e.preventDefault(); this.addContact(); }} className="form-inline">
+                                <div className="field">
+                                    <input type="text" name="name" placeholder="Name" className="input"
+                                        value={this.state.name} onChange={this.handleChange} />
+                                </div>
 
-                            <div className="form-group">
-                                <input type="text" name="email" className="form-control mb-2 mr-sm-2 mb-sm-0"
-                                    placeholder="Email" value={this.state.email} onChange={this.handleChange} />
-                            </div>
+                                <div className="field">
+                                    <input type="text" name="email" className='input'
+                                        placeholder="Email" value={this.state.email} onChange={this.handleChange} />
+                                </div>
 
-                            <button type="submit" className="btn btn-primary" disabled={!this.formValid()}>Add</button>
-                        </form>
-
+                                <button type="submit" className="button is-success" disabled={!this.formValid()}>Add</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             );
